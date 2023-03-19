@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!------------------------------------ giving title an image--------------------------------------------- -->
+    <link rel="website icon" type="svg" href="imgs/mylogo/logo.svg">
+    <title>Portfolio-2</title>
+</head>
+
+<body>
+    <!-- -----------------------------------start header------------------------------ -->
+
+    <nav class="navber">
+        <div class="container">
+            <div class="logo">
+                <img src="imgs/mylogo/logo.svg" style="max-width: 60px;" alt="">
+                <span>E<sup>M</sup><sub>D</sub></h1></span>
+            </div>
+            <div class="user-welcome">
+                <div class="text-animate">
+                    <h3><span class="text-repeat"></span></h3>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- -----------------------------------end header------------------------------ -->
+
+
+
+    <!-- ---------------------------start skills section----------------------------- -->
+
+    <section class="our-project">
+        <div class="container">
+            <div class="proj-card active">
+                <div class="proj-img">
+                    <img src="imgs/proj1.png" alt="">
+                </div>
+                <div class="card-infor">
+                    <h4>CRUD Operations</h4>
+                    <p>CRUD stands for CREATE, READ, UPDATE and DELETE — the four essential functions of any persistent
+                        storage system, like a database.</p>
+                    <a target="_blank" href="https://resilient-sundae-1b7a7c.netlify.app">view demo</a>
+                </div>
+            </div>
+            <div class="proj-card">
+                <div class="proj-img">
+                    <img src="imgs/proj2.png" alt="">
+                </div>
+                <div class="card-infor">
+                    <h4>Social Media Website</h4>
+                    <p>Social media web application clone along the lines of Signal, Facebook, and Twitter. This will
+                        include functionality of user authentication , posting and commenting.</p>
+                    <a target="_blank" href="https://superlative-eclair-12390f.netlify.app">view demo</a>
+                </div>
+            </div>
+            <div class="proj-card">
+                <div class="proj-img">
+                    <img src="imgs/proj5.png" alt="">
+                </div>
+                <div class="card-infor">
+                    <h4>Ecommerce Website</h4>
+                    <p>A Fully Responsive Ecommerce Website, Responsive For All Devices, Build Using HTML, CSS,
+                        Bootstrap, And JavaScript</p>
+                    <a target="_blank" href="https://endearing-wisp-f3543b.netlify.app">view demo</a>
+                </div>
+            </div>
+            <div class="proj-card">
+                <div class="proj-img">
+                    <img src="imgs/proj3.png" alt="">
+                </div>
+                <div class="card-infor">
+                    <h4>Islamic Prayer Times</h4>
+                    <p>Pray Times provides a set of handy functions to calculate prayer times for any location around
+                        the Egypt.</p>
+                    <a target="_blank" href="https://astounding-marshmallow-111b9b.netlify.app">view demo</a>
+                </div>
+            </div>
+            <div class="proj-card">
+                <div class="proj-img">
+                    <img src="imgs/proj4.png" alt="">
+                </div>
+                <div class="card-infor">
+                    <h4>Responsive Mountaine Website</h4>
+                    <p>responsive design to the next level by displaying what looks like completely different web pages
+                        depending on your device</p>
+                    <a target="_blank" href="https://lustrous-rolypoly-d9f120.netlify.app">view demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ---------------------------end skills section----------------------------- -->
+
+
+    <!-- ------------------------------------------import js files--------------------------- -->
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"
+        integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Flip.min.js"
+        integrity="sha512-RL2ypMFkOs/iB79bWnNiFrZRCqyExtQ38n/K+t7Xjf09YZcvSzqgSaGVj+fiVYEqVRLf/WjdHmwGImZM3XO5gA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+
+        var effect = new Typed('.text-repeat', {
+            strings: ["Welcome", "Accueillir", "Hallo", "هلا", "Benvenuto"],
+            loop: true,
+            typeSpeed: 250,
+            backSpeed: 100,
+            backDelay: 3000,
+        })
+    </script>
+
+
+
+
+
+
+    <script>
+        const cards = document.querySelectorAll('.proj-card');
+        cards.forEach((card, index) => {
+            card.addEventListener('click', () => {
+                console.log('word')
+                const state = Flip.getState(cards);
+
+
+                const isActive = card.classList.contains('active');
+                cards.forEach((otherCard, otherIdx) => {
+                    otherCard.classList.remove('active');
+                    otherCard.classList.remove('is-inactive');
+                    if (!isActive && index !== otherIdx) {
+                        otherCard.classList.add('is-inactive')
+                    }
+                });
+
+                if (!isActive) card.classList.add('active');
+
+
+                Flip.from(state, {
+                    duration: 1,
+                    ease: "expo.out",
+                    absolute: true,
+                })
+            })
+        })
+
+    </script>
+
+</body>
+
